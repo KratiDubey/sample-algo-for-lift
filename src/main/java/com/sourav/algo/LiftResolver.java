@@ -17,14 +17,14 @@ public class LiftResolver {
      * @param destination
      * @return
      */
-    /*public Lift resolveLift(List<Lift> lifts,int destination){
-        int minimumDistance = lifts.get(0).getPositionIndex() - destination;
+    public Lift resolveLift(List<Lift> lifts,int destination){
+        int minimumDistance = lifts.get(0).getPosition().ordinal() - destination;
         Lift resolvedLift = lifts.get(0);
         for(Lift lift:lifts){
-            if(lift.getPositionIndex()-destination<minimumDistance){
+            if(lift.getPosition().ordinal()-destination<minimumDistance){
                 resolvedLift = lift;
             }
         }
         return resolvedLift;
-    }*/
+    }
 }
