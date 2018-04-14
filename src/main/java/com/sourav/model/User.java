@@ -27,13 +27,12 @@ public class User {
         this.floorPosition = floorPosition;
     }
 
-    public Map<String, String> pressDestination(int destination){
+    /*public Map<String, String> pressDestination(int destination){
 
         //sanity check
         if(destination<0 || destination>7){
             throw new IllegalArgumentException("The floor you are trying to access does not exist");
         }
-
         Map<String,String> infoMap = new HashMap<>();
         TimeCalculator timeCalculator = new TimeCalculator();
         //TODO init all lifts
@@ -42,7 +41,6 @@ public class User {
         //resolve lift
         LiftResolver liftResolver = new LiftResolver();
         Lift resolvedLift = liftResolver.resolveLift(liftList,destination);
-        infoMap.put("LiftName",resolvedLift.getLiftName());
         //TODO send additional information -> time to reach user
         int timeToReachUser = timeCalculator.calculateTimeToReachUser(resolvedLift,this.getFloorPosition());
         infoMap.put("TimeToReachUser",String.valueOf(timeToReachUser));
@@ -52,5 +50,5 @@ public class User {
         infoMap.put("TimeToReachDestination",String.valueOf(timeTOReachDestination));
 
         return infoMap;
-    }
+    }*/
 }

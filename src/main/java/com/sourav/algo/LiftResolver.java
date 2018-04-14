@@ -17,7 +17,7 @@ public class LiftResolver {
      * @param destination
      * @return
      */
-    public Lift resolveLift(List<Lift> lifts,int destination){
+    /*public Lift resolveLift(List<Lift> lifts,int destination){
         int minimumDistance = lifts.get(0).getPositionIndex() - destination;
         Lift resolvedLift = lifts.get(0);
         for(Lift lift:lifts){
@@ -26,5 +26,5 @@ public class LiftResolver {
             }
         }
         return resolvedLift;
-    }
+    }*/
 }

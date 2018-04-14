@@ -2,7 +2,7 @@ package com.sourav.model;
 
 public class Lift {
 
-    enum LIFTNAME{
+    public enum LIFTNAME{
         A,B,C,D
     }
 
@@ -10,23 +10,27 @@ public class Lift {
         ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN
     }
 
-    enum WORKING_STATE{
+    public enum WORKING_STATE{
         WORKING,SLEEPING
     }
-
-    private String liftName;
-
-    private int positionIndex;
-
-    private int timeToReachUser;
-
-    private int timeToReachDestination;
-
     private LIFTNAME liftname;
 
     private POSITION position;
 
     private WORKING_STATE workingState;
+
+    private int timeToReachUser;
+
+    private int timeToReachDestination;
+
+    public Lift() {
+    }
+
+    public Lift(LIFTNAME liftname) {
+        this.liftname = liftname;
+        this.position = POSITION.ZERO;
+        this.workingState = WORKING_STATE.SLEEPING;
+    }
 
     public LIFTNAME getLiftname() {
         return liftname;
@@ -52,9 +56,6 @@ public class Lift {
         this.workingState = workingState;
     }
 
-    public Lift() {
-    }
-
     public int getTimeToReachUser() {
         return timeToReachUser;
     }
@@ -71,26 +72,4 @@ public class Lift {
         this.timeToReachDestination = timeToReachDestination;
     }
 
-    public Lift(String liftName, int positionIndex, int timeToReachUser, int timeToReachDestination) {
-        this.liftName = liftName;
-        this.positionIndex = positionIndex;
-        this.timeToReachUser = timeToReachUser;
-        this.timeToReachDestination = timeToReachDestination;
-    }
-
-    public String getLiftName() {
-        return liftName;
-    }
-
-    public void setLiftName(String liftName) {
-        this.liftName = liftName;
-    }
-
-    public int getPositionIndex() {
-        return positionIndex;
-    }
-
-    public void setPositionIndex(int positionIndex) {
-        this.positionIndex = positionIndex;
-    }
 }
