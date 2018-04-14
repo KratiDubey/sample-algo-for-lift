@@ -5,11 +5,13 @@ import com.sourav.model.Lift;
 import com.sourav.model.User;
 import com.sourav.utilities.BasicUtils;
 import com.sourav.utilities.TimeCalculator;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class UserService {
 
     private User user;
@@ -24,8 +26,8 @@ public class UserService {
      * How much time it would take to reach user
      * How much time it would take to reach destination
      *
-     * @param destination
-     * @return
+     * @param destination : Which floor the user wants to go
+     * @return infoMap : A map of information
      */
     public Map<String, String> pressDestination(int destination){
 
@@ -43,11 +45,11 @@ public class UserService {
         LiftResolver liftResolver = new LiftResolver();
         Lift resolvedLift = liftResolver.resolveLift(liftList,destination);
 
-        //TODO send additional information -> time to reach user
+        //send additional information -> time to reach user
         int timeToReachUser = timeCalculator.calculateTimeToReachUser(resolvedLift,user.getFloorPosition());
         infoMap.put("TimeToReachUser",String.valueOf(timeToReachUser));
 
-        //TODO send additional information -> time to reach destination
+        //send additional information -> time to reach destination
         int timeTOReachDestination =
                 timeCalculator.calculateTimeToReachDestination(timeToReachUser,user.getFloorPosition(),destination);
         infoMap.put("TimeToReachDestination",String.valueOf(timeTOReachDestination));
