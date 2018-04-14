@@ -1,4 +1,4 @@
-package com.sourav.samplealgoforlift;
+package com.sourav;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
