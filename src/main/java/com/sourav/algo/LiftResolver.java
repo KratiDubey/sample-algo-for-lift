@@ -14,14 +14,15 @@ public class LiftResolver {
      * Need to enhance the algorithm
      *
      * @param lifts
-     * @param destination
+     * @param userPosition
      * @return
      */
-    public Lift resolveLift(List<Lift> lifts,int destination){
-        int minimumDistance = lifts.get(0).getPosition().ordinal() - destination;
+    //TODO below implementation is wrong, resolved lift would be the one closest to user
+    public Lift resolveLift(List<Lift> lifts, Lift.POSITION userPosition){
+        int minimumDistance = Math.abs(lifts.get(0).getPosition().ordinal() - userPosition.ordinal());
         Lift resolvedLift = lifts.get(0);
         for(Lift lift:lifts){
-            if(lift.getPosition().ordinal()-destination<minimumDistance){
+            if(Math.abs(lift.getPosition().ordinal()- userPosition.ordinal())<minimumDistance){
                 resolvedLift = lift;
             }
         }

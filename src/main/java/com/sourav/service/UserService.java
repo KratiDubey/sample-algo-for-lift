@@ -20,6 +20,15 @@ public class UserService {
 
     private LiftResolver liftResolver;
 
+    public Lift.LIFTNAME resolveLift(Lift.POSITION userPosition){
+
+        //resolve lift
+        List<Lift> liftList = BasicUtils.initLifts();
+        LiftResolver liftResolver = new LiftResolver();
+        Lift resolvedLift = liftResolver.resolveLift(liftList,userPosition);
+        return resolvedLift.getLiftname();
+    }
+
     /**
      * This method would return a map of information,
      * Which Lift would be coming
@@ -29,7 +38,7 @@ public class UserService {
      * @param destination : Which floor the user wants to go
      * @return infoMap : A map of information
      */
-    public Map<String, String> pressDestination(int destination){
+    public void pressDestination(int destination){
 
         //sanity check
         if(destination<0 || destination>7){
@@ -41,19 +50,16 @@ public class UserService {
         //initiating all lifts at ground level and at sleeping state
         List<Lift> liftList = BasicUtils.initLifts();
 
-        //resolve lift
-        LiftResolver liftResolver = new LiftResolver();
-        Lift resolvedLift = liftResolver.resolveLift(liftList,destination);
 
         //send additional information -> time to reach user
-        int timeToReachUser = timeCalculator.calculateTimeToReachUser(resolvedLift,user.getFloorPosition());
-        infoMap.put("TimeToReachUser",String.valueOf(timeToReachUser));
+        /*int timeToReachUser = timeCalculator.calculateTimeToReachUser(resolveLift(destination),user.getFloorPosition());
+        infoMap.put("TimeToReachUser",String.valueOf(timeToReachUser));*/
 
         //send additional information -> time to reach destination
-        int timeTOReachDestination =
+        /*int timeTOReachDestination =
                 timeCalculator.calculateTimeToReachDestination(timeToReachUser,user.getFloorPosition(),destination);
         infoMap.put("TimeToReachDestination",String.valueOf(timeTOReachDestination));
 
-        return infoMap;
+        return infoMap;*/
     }
 }
